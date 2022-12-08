@@ -119,4 +119,8 @@ def process_data(file_path):
 
     df = df.drop_duplicates()
 
+    df = adjust_columns_order(df)
+
+    df.to_csv("./data/processed/data.csv", index=False)
+
     return adjust_columns_order(df)
