@@ -2,12 +2,6 @@ import pandas as pd
 
 from .process_data import process_data
 
-# 1. Quantos restaurantes únicos estão registrados?
-# 2. Quantos paises únicos estão registrados?
-# 3. Quantas cidades únicas estão registradas?
-# 4. Qual o total de avaliações feitas?
-# 5. Qual o total de tipos de culinária registrados?
-
 
 def qty_restaurants(dataframe):
     return dataframe.shape[0]
