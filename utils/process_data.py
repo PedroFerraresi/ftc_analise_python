@@ -123,4 +123,4 @@ def process_data(file_path):
 
     df.to_csv("./data/processed/data.csv", index=False)
 
-    return adjust_columns_order(df)
+    return df
