@@ -105,9 +105,9 @@ def adjust_columns_order(dataframe):
 def process_data(file_path):
     df = pd.read_csv(file_path)
 
-    df = df.dropna()
-
     df = rename_columns(df)
+
+    df = df.dropna()
 
     df["price_type"] = df.loc[:, "price_range"].apply(lambda x: create_price_tye(x))
 
@@ -116,6 +116,10 @@ def process_data(file_path):
     df["color_name"] = df.loc[:, "rating_color"].apply(lambda x: color_name(x))
 
     df["cuisines"] = df.loc[:, "cuisines"].apply(lambda x: x.split(",")[0])
+
+    df = df.drop(df[(df["cuisines"] == "Drinks Only")].index)
+
+    df = df.drop(df[(df["cuisines"] == "Mineira")].index)
 
     df = df.drop_duplicates()
 
