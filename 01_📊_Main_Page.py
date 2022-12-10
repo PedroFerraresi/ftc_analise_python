@@ -1,6 +1,7 @@
 import folium
+import pandas as pd
 import streamlit as st
-from folium.plugins import HeatMap, MarkerCluster
+from folium.plugins import MarkerCluster
 from PIL import Image
 from streamlit_folium import folium_static
 
@@ -18,10 +19,23 @@ def create_sidebar(df):
     col1.image(image, width=35)
     col2.markdown("# Fome Zero")
 
+    st.sidebar.markdown("## Filtros")
+
     countries = st.sidebar.multiselect(
         "Escolha os Paises que Deseja visualizar os Restaurantes",
         df.loc[:, "country"].unique().tolist(),
         default=["Brazil", "England", "Qatar", "South Africa", "Canada", "Australia"],
+    )
+
+    st.sidebar.markdown("### Dados Tratados")
+
+    processed_data = pd.read_csv("./data/processed/data.csv")
+
+    st.sidebar.download_button(
+        label="Download",
+        data=processed_data.to_csv(index=False),
+        file_name="data.csv",
+        mime="text/csv",
     )
 
     return list(countries)

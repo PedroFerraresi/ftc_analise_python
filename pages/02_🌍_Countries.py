@@ -4,6 +4,8 @@ import utils.countries_data as cdt
 
 
 def make_sidebar(df):
+    st.sidebar.markdown("## Filtros")
+
     countries = st.sidebar.multiselect(
         "Escolha os Paises que Deseja visualizar as Informações",
         df.loc[:, "country"].unique().tolist(),
