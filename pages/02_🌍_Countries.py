@@ -1,4 +1,3 @@
-# Contents of ~/my_app/pages/page_3.py
 import streamlit as st
 
 import utils.countries_data as cdt
@@ -6,7 +5,7 @@ import utils.countries_data as cdt
 
 def make_sidebar(df):
     countries = st.sidebar.multiselect(
-        "Escolha os Paises que Deseja visualizar os Restaurantes",
+        "Escolha os Paises que Deseja visualizar as Informações",
         df.loc[:, "country"].unique().tolist(),
         default=["Brazil", "England", "Qatar", "South Africa", "Canada", "Australia"],
     )
@@ -42,6 +41,8 @@ def main():
         fig = cdt.countries_average_plate(countries)
 
         st.plotly_chart(fig, use_container_width=True)
+
+    return None
 
 
 if __name__ == "__main__":
