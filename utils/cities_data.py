@@ -8,14 +8,6 @@ def read_processed_data():
     return pd.read_csv("./data/processed/data.csv")
 
 
-def create_country_column(dataframe):
-    df_original = read_processed_data()
-
-    dataframe.loc[:, "country"] = df_original.loc[
-        df_original["city"] == dataframe.loc[:, "city"], "country"
-    ]
-
-
 def top_cities_restaurants(countries):
     df = read_processed_data()
 
