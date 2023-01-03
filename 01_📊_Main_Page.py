@@ -33,7 +33,7 @@ def create_sidebar(df):
 
     st.sidebar.download_button(
         label="Download",
-        data=processed_data.to_csv(index=False),
+        data=processed_data.to_csv(index=False, sep=";"),
         file_name="data.csv",
         mime="text/csv",
     )
