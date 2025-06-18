@@ -12,6 +12,9 @@ RAW_DATA_PATH = f"./data/raw/data.csv"
 
 
 def create_sidebar(df):
+    """
+    nova doc
+    """
     image_path = "./img/"
     image = Image.open(image_path + "logo.png")
 
